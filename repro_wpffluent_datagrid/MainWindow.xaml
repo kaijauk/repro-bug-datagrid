@@ -8,7 +8,7 @@
         Title="MainWindow"
         Height="450"
         Width="800"
-        ThemeMode="Dark">
+        ThemeMode="Light">
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:TabViewModel}">
             <local:MyUserControl />
@@ -18,15 +18,15 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <TabControl ItemsSource="{Binding Tabs}">
-            <TabControl.ItemTemplate>
+        <local:CachedTabControl ItemsSource="{Binding Tabs}">
+            <local:CachedTabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Title}"
                                    Style="{DynamicResource TitleLargeTextBlockStyle}" />
                     </StackPanel>
                 </DataTemplate>
-            </TabControl.ItemTemplate>
-        </TabControl>
+            </local:CachedTabControl.ItemTemplate>
+        </local:CachedTabControl>
     </Grid>
 </Window>
